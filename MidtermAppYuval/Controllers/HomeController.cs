@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MidtermAppYuval.Business;
 using MidtermAppYuval.Models;
 
 namespace MidtermAppYuval.Controllers;
@@ -21,13 +20,13 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    // public IActionResult Index(Order input)
-    // {
-    //     if (!ModelState.IsValid) return View(input);
-    //
-    //     var receipt = _orderService.Add(input);
-    //     return View("Receipt", receipt);
-    // }
+    public IActionResult Index(Order input)
+    {
+        if (!ModelState.IsValid) return View(input);
+
+        var receipt = input.Price;
+        return View("Reciept", receipt);
+    }
     
     
     public IActionResult OrderHistory()
