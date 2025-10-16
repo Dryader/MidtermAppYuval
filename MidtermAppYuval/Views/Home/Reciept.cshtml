@@ -1,0 +1,32 @@
+﻿@* Student: yuval matasaro, ID: 991735973 *@
+@model Order
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title mb-4">Order Receipt</h3>
+
+                <dl class="row">
+
+                    <dt class="col-sm-4">Phone</dt>
+                    <dd class="col-sm-8">@Model.type @Model.Color x @Model.amount</dd>
+
+                    <dt class="col-sm-4">Price per item</dt>
+                    <dd class="col-sm-8">@Model.Price.ToString("C")</dd>
+
+                    <dt class="col-sm-4">Subtotal</dt>
+                    <dd class="col-sm-8">@Model.Total.ToString("C")</dd>
+                    
+                    <dt class="col-sm-4">Total</dt>
+                    <dd class="col-sm-8 fw-bold">@Model.Total.ToString("C")</dd>
+                </dl>
+
+                <a asp-action="Index" class="btn btn-secondary">Place Another Order</a>
+            </div>
+        </div>
+    </div>
+</div>

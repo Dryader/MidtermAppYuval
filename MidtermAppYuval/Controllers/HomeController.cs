@@ -6,7 +6,9 @@ using MidtermAppYuval.Models;
 namespace MidtermAppYuval.Controllers;
 
 public class HomeController : Controller
-{
+{    
+    private readonly List<Order> _orderService;
+
     private readonly ILogger<HomeController> _logger;
     public HomeController(ILogger<HomeController> logger)
     {
@@ -15,9 +17,23 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return View(new Order());
     }
 
+    [HttpPost]
+    // public IActionResult Index(Order input)
+    // {
+    //     if (!ModelState.IsValid) return View(input);
+    //
+    //     var receipt = _orderService.Add(input);
+    //     return View("Receipt", receipt);
+    // }
+    
+    
+    public IActionResult OrderHistory()
+    {
+        return View("OrderHistory");
+    }
     [HttpPost]
     public IActionResult Privacy()
     {

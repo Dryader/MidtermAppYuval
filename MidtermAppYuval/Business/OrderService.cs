@@ -6,16 +6,21 @@ public class OrderService
 {
     List<Order> orders = new List<Order>();
 
-    
-    // public void AddOrder(Order order)
-    // {
-    //     orders.Add(order);
-    // }
+
+    public void AddOrder(Order order)
+    {
+        orders.Add(order);
+    }
 
 
-    // public Order GetCost(Order order)
-    // {
-    //     var subtotal = order.Price * order.amount;
-    //     orders.Add(subtotal);
-    // }
+    public float GetCost(Order order)
+    {
+        float subtotal = order.Price * order.amount;
+        if (order.tip == true)
+        {
+            subtotal = (float)(subtotal * 1.05);
+        }
+
+        return subtotal;
+    }
 }

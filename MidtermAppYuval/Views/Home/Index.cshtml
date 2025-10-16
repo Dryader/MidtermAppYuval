@@ -35,9 +35,12 @@
                         <span asp-validation-for="amount" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="Colorr" class="form-label"></label>
-                        <input asp-for="Colorr" class="form-control" min="1"/>
-                        <span asp-validation-for="Colorr" class="text-danger"></span>
+                        <label asp-for="Color" class="form-label"></label>
+                        <input asp-for="Color" class="form-control" min="1"/>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="tip" class="form-check-input"/>
+                        <label asp-for="tip" class="form-check-label"></label>
                     </div>
                     <button type="submit" class="btn btn-primary">Calculate Bill</button>
                 </form>
