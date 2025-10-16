@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@* Student: yuval matasaro, ID: 991735973 *@
+@model Order
+@{
+    ViewData["Title"] = " Phone Order";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <h1 class="display-5">Welcome to Phone Order System</h1>
+    </div>
+    <div class="col-md-4 text-center">
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Place Your Order</h5>
+                <form asp-action="Index" method="post" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="type" class="form-label"></label>
+                        <select asp-for="type" class="form-select"
+                                asp-items="Html.GetEnumSelectList<type>()"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="payment" class="form-label"></label>
+                        <select asp-for="payment" class="form-select"
+                                asp-items="Html.GetEnumSelectList<payment>()"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="amount" class="form-label"></label>
+                        <input asp-for="amount" class="form-control" min="1"/>
+                        <span asp-validation-for="amount" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Colorr" class="form-label"></label>
+                        <input asp-for="Colorr" class="form-control" min="1"/>
+                        <span asp-validation-for="Colorr" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate Bill</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

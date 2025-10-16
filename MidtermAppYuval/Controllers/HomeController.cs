@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using MidtermAppYuval.Business;
 using MidtermAppYuval.Models;
 
 namespace MidtermAppYuval.Controllers;
@@ -7,7 +8,6 @@ namespace MidtermAppYuval.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -18,6 +18,7 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
     public IActionResult Privacy()
     {
         return View();
