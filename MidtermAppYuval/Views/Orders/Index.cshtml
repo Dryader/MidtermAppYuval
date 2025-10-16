@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Order>
+<h1>Product Index View</h1>
+
+<h2> Product List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sort="@ViewBag.NameSort">Name</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sort="@ViewBag.PriceSort">Price</a>
+        </th>
+        <th>Stock</th>
+        <th></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    @foreach( var p in Model){
+        <tr>
+            <td>@p.Color</td>
+            <td>@p.Price</td>
+            @* <td> *@
+            @*     @if(!p.InStock){ *@
+            @*         <span class="badge text-bg-danger">Out of Stock</span> *@
+            @*     } else { *@
+            @*         <span class="badge text-bg-success">In Stock</span> *@
+            @*     } *@
+            @* </td> *@
+            <td>
+                <a asp-action="Details" asp-route-id="@p.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@p.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@p.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Home</a>
+</p>
